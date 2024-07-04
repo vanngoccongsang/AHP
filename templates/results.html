@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: hsla(288, 70%, 83%, 0.234);
+            color: #333;
+        }
+
+        h1 {
+            color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2,
+        h3 {
+            color: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: darkslategray;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BẤT ĐỘNG SẢN</h1>
+    <hr>
+    <h1>Kết Quả Phân Tích</h1>
+    <h2>Điểm Tổng Kết Cho Các Loại Nhà</h2>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên Nhà</th>
+                    <th>Điểm</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for name, score in sorted_scores %}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ score|percent }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Thông Tin Nhất Quán</h2>
+    <p>Tỉ lệ nhất quán của ma trận tiêu chí: {{ consistency_ratio }}</p>
+    {% if consistency_ratio >= 0.1 %}
+    <p class="warning">Cảnh báo: Ma trận tiêu chí có tỉ lệ nhất quán cao hơn 0.1, điều này có thể không chính xác.</p>
+    {% else %}
+    <p>Ma trận tiêu chí nhất quán và có thể chấp nhận được.</p>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}">Quay lại Trang Chủ</a>
+
+    <hr>
+    <footer>
+        Thành viên:
+        <li>Văn Ngọc Công Sang</li>
+        <li>Trần Hồng Hoàng</li>
+        <li>Võ Xuân Anh Tuấn</li>
+    </footer>
+</body>
+
+</html>

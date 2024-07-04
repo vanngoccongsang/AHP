@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Chủ Bất động sản</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: hsla(288, 70%, 83%, 0.234);
+            color: #333;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            align-content: stretch;
+        }
+
+        h1 {
+            color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2,
+        h3 {
+            color: #0056b3;
+        }
+
+        h4 {
+            font-size: 24px;
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        h5 {
+            font-size: 15px;
+            color: #0056b3;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            background: white;
+            padding: 7%;
+            border-radius: 10%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 100%;
+            margin: 1%;
+        }
+
+        label,
+        input,
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 5%;
+            border: 1px solid #ccc;
+            padding: 3%;
+            border-radius: 10%;
+        }
+
+        button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .tinhtoan {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            left: 35%;
+            top: 35%;
+            transform: translate(-10%, -40%);
+            width: 40%;
+
+        }
+
+        img {
+            width: 100%;
+        }
+
+        footer {
+            background-color: darkslategray;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+        input:hover{
+            background-color: #004494;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BẤT ĐỘNG SẢN</h1>
+    <hr>
+    <h4>Chào mừng bạn đến với công cụ lựa chọn bất động sản dựa trên phương pháp AHP!</h4>
+    <img src="https://static.homedy.com/src/images/home/bg061020.jpg?v=13">
+
+    <div class="tinhtoan">
+        <form method="post" action="{{ url_for('index') }}">
+            <label for="criteria_names">Nhập tên các tiêu chí (cách nhau dấu phẩy):</label>
+            <input type="text" id="criteria_names" name="criteria_names" required>
+            <button type="submit">Tiếp tục</button>
+        </form>
+
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <h5>Nhập bằng Excel </h5>
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+
+    <h5>Trong thế giới bất động sản đa dạng và phức tạp,
+        việc quyết định chọn lựa một căn nhà phù hợp có thể trở nên mông lung.
+        Chính vì vậy, chúng tôi hân hạnh giới thiệu đến bạn công cụ AHP (Analytic Hierarchy Process)
+        - một phương pháp phân tích cực kỳ mạnh mẽ để hỗ trợ quyết định lựa chọn bất động sản.</h5>
+
+    <h5>AHP không chỉ đơn giản là một công cụ tính toán, mà còn là một phương pháp cân nhắc kỹ lưỡng
+        các tiêu chí và quan điểm cá nhân của bạn để đưa ra quyết định cuối cùng có trọng số.
+        Qua việc sử dụng AHP, bạn có thể đánh giá và xác định rõ ràng những yếu tố quan trọng nhất
+        đối với bạn trong việc chọn lựa bất động sản, từ vị trí, giá cả, tiện ích xung quanh
+        đến điều kiện của căn nhà.</h5>
+
+    <hr>
+    <footer>
+        Thành viên:
+        <li>Văn Ngọc Công Sang</li>
+        <li>Trần Hồng Hoàng</li>
+        <li>Võ Xuân Anh Tuấn</li>
+    </footer>
+</body>
+
+</html>

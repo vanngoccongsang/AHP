@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Enter Number of Houses</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: hsla(288, 70%, 83%, 0.234);
+            color: #333;
+        }
+
+        h1 {
+            color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2,
+        h3 {
+            color: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: stretch;
+
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label,
+        input,
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+
+        footer {
+            background-color: darkslategray;
+            color: white;
+        }
+    </style>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bất Động Sản</title>
+</head>
+
+<body>
+    <h1>BẤT ĐỘNG SẢN</h1>
+    <hr>
+    <h1>Nhập Thông Tin Nhà</h1>
+    <div class="container">
+        <h3>Nhập Tên Các Nhà:</h3>
+        <form method="post">
+            <textarea name="house_names" rows="3" cols="50"
+                placeholder="Nhập tên các nhà, cách nhau bằng dấu phẩy"></textarea>
+            <button type="submit">Tiếp tục</button>
+        </form>
+        <br>
+        <h3>Hoặc Nhập thông tin từ tệp Excel:</h3>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".xlsx, .xls">
+            <button type="submit">Tải lên</button>
+        </form>
+    </div>
+
+    <footer>
+        Thành viên:
+        <li>Văn Ngọc Công Sang</li>
+        <li>Trần Hồng Hoàng</li>
+        <li>Võ Xuân Anh Tuấn</li>
+    </footer>
+</body>
+
+</html>

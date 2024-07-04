@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nhập Ma Trận Nhà</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: hsla(288, 70%, 83%, 0.234);
+            color: #333;
+
+        }
+
+        h1 {
+            color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2,
+        h3 {
+            color: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: auto;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            overflow: auto;
+        }
+
+        label,
+        input,
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+
+        footer {
+            background-color: darkslategray;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BẤT ĐỘNG SẢN</h1>
+    <hr>
+    <h1>Nhập Ma Trận Nhà</h1>
+    <div class="formmatrix">
+        <form method="post">
+            {% for crit_name in criteria_names %}
+            <h3>{{ crit_name }}</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    {% for name in house_names %}
+                    <th>{{ name }}</th>
+                    {% endfor %}
+                </tr>
+                {% for i in range(house_count) %}
+                <tr>
+                    <th>{{ house_names[i] }}</th>
+                    {% for j in range(house_count) %}
+                    {% if i == j %}
+                    <td><input type="number" name="matrix_{{ crit_name }}_{{ i }}_{{ j }}" value="1" readonly></td>
+                    {% elif i < j %} <td><input type="number" name="matrix_{{ crit_name }}_{{ i }}_{{ j }}"
+                            value="{{ house_matrices[criteria_names.index(crit_name)][i][j] if house_matrices else '' }}"
+                            step="0.01" required></td>
+                        {% else %}
+                        <td><input type="number" name="matrix_{{ crit_name }}_{{ j }}_{{ i }}"
+                                value="{{ house_matrices[criteria_names.index(crit_name)][j][i] if house_matrices else '' }}"
+                                readonly></td>
+                        {% endif %}
+                        {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            {% endfor %}
+            <button type="submit">Tính Kết Quả</button>
+        </form>
+    </div>
+
+    <footer>
+        Thành viên:
+        <li>Văn Ngọc Công Sang</li>
+        <li>Trần Hồng Hoàng</li>
+        <li>Võ Xuân Anh Tuấn</li>
+    </footer>
+</body>
+
+</html>
